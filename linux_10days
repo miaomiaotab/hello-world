@@ -1,0 +1,31 @@
+su root                    #switch,from root passwd remit.
+su - root                  #home
+
+adduser test
+passwd test
+
+whoami
+
+#system-logout-swithuser-root
+gedit myfile.txt
+
+chmod o+x myfile.txt              #[u g o a]
+chgrp test myfile.txt
+chown miaomiaotab:test myfile.txt   #[: .]
+
+man touch
+mkdir tmpDir | cd tmpDir | touch file{1..5} #failed,ToDo.
+chown -R test:test tmpDir                      #recursive children
+
+#root directory:   /boot/ /etc/ /opt/#source code package /usr/#program files 
+#                  /proc/#process /sbin/#admin bin file /var/#big files 
+
+uname -n                        #-r
+lsb_release -a                  #--help
+cat /edt/redhat-release
+
+rmdir -p                        #rm -rf
+
+cd ~miaomiaotab                 #relative path
+
+#cat tac nl more less head tail od

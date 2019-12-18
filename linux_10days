@@ -1,3 +1,6 @@
+# linux_10days
+##########################################################
+##############   4.Authority/user/group
 su root                    #switch,from root passwd remit.
 su - root                  #home
 
@@ -12,6 +15,7 @@ gedit myfile.txt
 chmod o+x myfile.txt              #[u g o a]
 chgrp test myfile.txt
 chown miaomiaotab:test myfile.txt   #[: .]
+PATH=""                            #global run
 
 man touch
 mkdir tmpDir | cd tmpDir | touch file{1..5} #failed,ToDo.
@@ -28,4 +32,40 @@ rmdir -p                        #rm -rf
 
 cd ~miaomiaotab                 #relative path
 
-#cat tac nl more less head tail od
+#cat tac nl more less head tail od gedit vi
+
+umask 033                       #umask -S
+chattr [+-] [i a]               #i:strict modify prevented  #a:only add, delete prevented
+file "filename"
+
+##########################################################
+##############   6.user/sudo/tar/vim
+id                        #/etc/passwd    /etc/shadow
+groups
+useradd -D                #-g primary_group #-G other_grp  #-r root_user_home_inexist
+userdel -r
+
+#vi /etc/sudoers        #<insert> miaomiaotab    ALL=(ALL)       ALL
+sudo passwd -l miaomiaotab
+
+groupadd  aaa                      #/etc/group  #groupdel after_restart
+usermod -G aaa miaomiaotab         #-g primary group
+
+which 
+sudo find . -group miaomiaotab -iname "linux*" -or -user root
+grep -n -i -w "ooo" oo
+
+zip file3to5 file{3..5}    #mv file3to5.zip ./subDir/  #unzip file3to5.zip #N_to_one
+gzip *                     #gzip -d *    #compress only, one_to_one only
+tar -cvf tar01.tar file{3..5} ./testDir/  #mv tar01.tar ./testDir/ #cd testDir
+tar -xvf tar01.tar         #-cvzf -xvzf
+
+cp -r
+tar --help |more
+man tar > override01
+man tar >> override01
+tail -f
+
+##########################################################
+##############   7.shell script
+help                  #keywords that shell_varity_name not allow
